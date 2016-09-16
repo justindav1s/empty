@@ -6,6 +6,8 @@ echo "---- * building it ..."
 echo "---- * sucking prebuilt components out of nexus"
 echo "---- * ansible ?"
 
+cp /tmp/src/setenv.sh /ib/appl/tomcat7/bin
+
 wget http://central.maven.org/maven2/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar
 mv logback-classic-1.1.7.jar /ib/appl/tomcat7/lib
 
