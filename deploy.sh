@@ -7,4 +7,4 @@ echo "---- * sucking prebuilt components out of nexus"
 echo "---- * ansible ?"
 
 
-wget http://nexus-ci.ba.datr.eu/content/repositories/snapshots/com/ba/captwo/eda/demo/selling-services/1.0-SNAPSHOT/selling-services-1.0-20160916.161135-1.war
+wget http://172.30.39.124:8081/content/repositories/snapshots/com/ba/captwo/eda/demo/selling-services/1.0-SNAPSHOT/selling-services-1.0-20160916.161135-1.war
