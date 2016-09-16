@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context>
+    <Resource name="jdbc/SellingDatasource_os" auth="Container" type="javax.sql.DataSource"
+              driverClassName="org.postgresql.Driver"
+              url="jdbc:postgresql://127.8.37.2:5432/u760245"
+              username="u760245"
+              password="u760245"
+              maxActive="20"
+              maxIdle="10"
+              maxWait="-1" />
+
+    <Resource name="jdbc/SellingDatasource" auth="Container" type="javax.sql.DataSource"
+              driverClassName="org.postgresql.Driver"
+              url="jdbc:postgresql://127.0.0.1:5432"
+              username="u760245"
+              password="12jnd34"
+              maxActive="20"
+              maxIdle="10"
+              maxWait="-1" />
+
+</Context>

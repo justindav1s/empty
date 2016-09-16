@@ -1,0 +1,19 @@
+/* app css stylesheet */
+
+body {
+  padding-top: 20px;
+}
+
+.top-buffer { margin-top:20px; }
+
+.person-form input.ng-invalid.ng-dirty {
+	border-color: #FA787E;
+}
+
+.person-form input.ng-invalid.ng-pristine {
+	border-color: #FA787E;
+}
+
+.person-form input.ng-valid.ng-dirty {
+	border-color: #78FA89;
+}
