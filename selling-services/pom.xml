@@ -18,6 +18,15 @@
         <tomcat.version>7.0.54</tomcat.version>
         <active.profile>dev</active.profile>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <url>http://nexus-ci.ba.datr.eu/content/repositories/snapshots</url>
+            <layout>default</layout>
+        </repository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.cxf</groupId>
