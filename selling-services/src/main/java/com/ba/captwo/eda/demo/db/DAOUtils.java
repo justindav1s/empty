@@ -138,7 +138,8 @@ public class DAOUtils {
             p = sellingDatasource.getConnection().getClientInfo();
             dbmd = sellingDatasource.getConnection().getMetaData();
             log.debug("URL : "+dbmd.getURL());
-            log.info("URL : "+dbmd.getURL());
+            log.info("URL : " + dbmd.getURL());
+            System.out.println("URL : " + dbmd.getURL());
         } catch (SQLException e) {
             e.printStackTrace();
         }
