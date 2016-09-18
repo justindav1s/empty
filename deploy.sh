@@ -8,6 +8,8 @@ echo "---- * ansible ?"
 
 cp /tmp/src/scripts/setenv.sh /ib/appl/tomcat7/bin
 
+cat cp /tmp/src/scripts/logback.xml
+
 cp /tmp/src/scripts/logback.xml /ib/appl/tomcat7/conf
 
 wget http://central.maven.org/maven2/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar
