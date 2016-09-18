@@ -5,12 +5,22 @@
         </encoder>
     </appender>
 
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>/ib/appl/tomcat7/logs/selling.log</file>
+        <append>true</append>
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
     <logger name="io.hawt.web" level="INFO"/>
     <logger name="org.apache.cxf" level="INFO"/>
     <logger name="org.apache.camel" level="INFO"/>
     <logger name="com.ba" level="DEBUG"/>
 
     <root level="debug">
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
     </root>
 </configuration>
