@@ -8,8 +8,6 @@ echo "---- * ansible ?"
 
 cp /tmp/src/scripts/setenv.sh /ib/appl/tomcat7/bin
 
-cat cp /tmp/src/scripts/logback.xml
-
 cp /tmp/src/scripts/logback.xml /ib/appl/tomcat7/conf
 
 wget "http://172.30.39.124:8081/service/local/artifact/maven/redirect?r=snapshots&g=com.ba.captwo.eda.demo&a=selling-services&v=LATEST&p=war" -O selling.war
