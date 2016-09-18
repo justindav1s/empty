@@ -20,5 +20,5 @@ mv slf4j-api-1.7.21.jar /ib/appl/tomcat7/lib
 wget http://central.maven.org/maven2/org/apache/camel/camel-core/2.13.2/camel-core-2.13.2.jar
 mv camel-core-2.13.2.jar /ib/appl/tomcat7/lib
 
-wget "http://nexus-ci.ba.datr.eu/service/local/artifact/maven/redirect?r=snapshots&g=com.ba.captwo.eda.demo&a=selling-services&v=LATEST&p=war" -O selling.war
+wget "http://172.30.39.124:8081/service/local/artifact/maven/redirect?r=snapshots&g=com.ba.captwo.eda.demo&a=selling-services&v=LATEST&p=war" -O selling.war
 mv selling.war  /ib/appl/tomcat7/webapps/selling.war
