@@ -19,7 +19,7 @@ import javax.ws.rs.core.Response;
 public interface PersonResource {
 
 
-    @POST
+    @GET
     @Produces("application/json")
     @Consumes("application/json")
     @Path("/qcreate")

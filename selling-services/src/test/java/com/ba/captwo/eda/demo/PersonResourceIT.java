@@ -58,7 +58,7 @@ public class PersonResourceIT {
         log.info("***** URI :" + endpointUrl + uri);
 
         WebClient client = WebClient.create(endpointUrl + uri, providers);
-        Response r = client.accept("application/json").type("application/json").post("");
+        Response r = client.accept("application/json").type("application/json").get();
         String value = IOUtils.toString((InputStream) r.getEntity());
         log.info("Create response : " + value);
 
