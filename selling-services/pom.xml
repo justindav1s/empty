@@ -121,7 +121,6 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-core</artifactId>
             <version>${camel.version}</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -237,12 +236,6 @@
                             <dependency>
                                 <groupId>org.slf4j</groupId>
                                 <artifactId>jcl-over-slf4j</artifactId>
-                                <type>jar</type>
-                                <classpath>shared</classpath>
-                            </dependency>
-                            <dependency>
-                                <groupId>org.apache.camel</groupId>
-                                <artifactId>camel-core</artifactId>
                                 <type>jar</type>
                                 <classpath>shared</classpath>
                             </dependency>
