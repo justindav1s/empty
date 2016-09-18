@@ -132,12 +132,16 @@ public class DAOUtils {
 
     public DataSource getSellingDatasource() {
         Properties p = null;
+        DatabaseMetaData dbmd = null;
+        log.debug("Connection Data");
         try {
             p = sellingDatasource.getConnection().getClientInfo();
+            dbmd = sellingDatasource.getConnection().getMetaData();
+            log.debug("URL : "+dbmd.getURL());
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        log.debug("Connection Data");
+
         Iterator<Object> keys = p.keySet().iterator();
         while (keys.hasNext()) {
             String key = (String)keys.next();
