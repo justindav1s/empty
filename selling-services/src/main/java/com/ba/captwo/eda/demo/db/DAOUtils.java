@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Properties;
 
 /**
  * Created by u760245 on 04/07/2014.
@@ -129,6 +131,21 @@ public class DAOUtils {
 
 
     public DataSource getSellingDatasource() {
+        Properties p = null;
+        try {
+            p = sellingDatasource.getConnection().getClientInfo();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        log.debug("Connection Data");
+        Iterator<Object> keys = p.keySet().iterator();
+        while (keys.hasNext()) {
+            String key = (String)keys.next();
+            log.debug("Key : "+key+" | value : "+p.getProperty(key));
+
+        }
+        log.debug("Connection Data : END");
+
         return sellingDatasource;
     }
 

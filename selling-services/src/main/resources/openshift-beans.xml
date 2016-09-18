@@ -14,7 +14,7 @@
         <jee:jndi-lookup id="sellingDatasource_jndi"
                          jndi-name="jdbc/SellingDatasource_os"
                          expected-type="javax.sql.DataSource"
-                         lookup-on-startup="false"/>
+                         lookup-on-startup="true"/>
 
         <bean id="sellingDatasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
             <property name="driverClassName" value="org.postgresql.Driver"/>
