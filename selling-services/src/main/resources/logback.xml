@@ -21,6 +21,6 @@
     <logger name="com.ba" level="DEBUG"/>
 
     <root level="DEBUG">
-        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT" />
     </root>
 </configuration>
