@@ -26,12 +26,18 @@ http://camel.apache.org/schema/spring/camel-spring.xsd">
     <context:component-scan base-package="com.ba.captwo.eda.demo.routes"/>
     <context:component-scan base-package="com.ba.captwo.eda.demo.resources"/>
     <context:component-scan base-package="com.ba.captwo.eda.demo.coreservices"/>
+    <context:component-scan base-package="com.ba.captwo.eda.demo.redis"/>
 
     <bean id="sellingDatasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="jdbc:postgresql://${db.host}:${db.port}/${db.username}"/>
         <property name="username" value="${db.username}"/>
         <property name="password" value="${db.password}"/>
+    </bean>
+
+    <bean id="RedisConfig" class="com.ba.captwo.eda.demo.redis.RedisConfig">
+        <property name="hostname" value="127.0.0.1"/>
+        <property name="port" value="6379"/>
     </bean>
 
 </beans>

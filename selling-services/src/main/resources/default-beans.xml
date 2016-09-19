@@ -24,14 +24,11 @@
             <property name="password" value="${db.password}"/>
         </bean>
 
-        <bean id="jedisConnFactory"
-              class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-              p:host-name="127.0.0.1" p:port="6379" p:use-pool="true"/>
+        <bean id="RedisConfig" class="com.ba.captwo.eda.demo.redis.RedisConfig">
+            <property name="hostname" value="127.0.0.1"/>
+            <property name="port" value="6379"/>
+        </bean>
 
-        <!-- redis template definition -->
-        <bean id="redisTemplate"
-              class="org.springframework.data.redis.core.RedisTemplate"
-              p:connection-factory-ref="jedisConnFactory"/>
     </beans>
 
 

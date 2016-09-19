@@ -2,9 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jaxrs="http://cxf.apache.org/jaxrs"
-       xmlns:camel="http://camel.apache.org/schema/spring"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:jee="http://www.springframework.org/schema/jee"
        xsi:schemaLocation="
 http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
@@ -12,8 +10,6 @@ http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd
 http://cxf.apache.org/jaxrs
 http://cxf.apache.org/schemas/jaxrs.xsd
-http://www.springframework.org/schema/jee
-http://www.springframework.org/schema/jee/spring-jee.xsd
 http://camel.apache.org/schema/spring
 http://camel.apache.org/schema/spring/camel-spring.xsd">
 
@@ -26,6 +22,7 @@ http://camel.apache.org/schema/spring/camel-spring.xsd">
     <context:component-scan base-package="com.ba.captwo.eda.demo.db"/>
     <context:component-scan base-package="com.ba.captwo.eda.demo.resources"/>
     <context:component-scan base-package="com.ba.captwo.eda.demo.routes"/>
+    <context:component-scan base-package="com.ba.captwo.eda.demo.redis"/>
 
     <import resource="classpath:META-INF/cxf/cxf.xml"/>
     <import resource="./default-beans.xml"/>
@@ -54,7 +51,5 @@ http://camel.apache.org/schema/spring/camel-spring.xsd">
         <routeBuilder ref="PersonCoreserviceRoute"/>
         <routeBuilder ref="FlightCoreserviceRoute"/>
     </camelContext>
-
-
 
 </beans>
