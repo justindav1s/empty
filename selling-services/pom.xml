@@ -29,12 +29,6 @@
     </distributionManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-            <version>1</version>
-        </dependency>
-
         <!-- CXF -->
         <dependency>
             <groupId>org.apache.cxf</groupId>
