@@ -53,7 +53,7 @@ public class CacheResourceImpl implements CacheResource{
     public Response clearEntries() {
         Response response = null;
         try {
-            ArrayList<String> list = cacheService.listEntries();
+            ArrayList<String> list = cacheService.clearEntries();
             response = Response.status(Response.Status.OK).entity(list).build();
         }
         catch (Exception e) {
