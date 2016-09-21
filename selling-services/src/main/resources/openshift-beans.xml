@@ -24,16 +24,11 @@
             <property name="password" value="${POSTGRESQL_PASSWORD}"/>
         </bean>
 
-        <bean id="redisConfig" class="com.ba.captwo.eda.demo.redis.RedisConfig">
-            <property name="hostname" value="${REDIS_SERVICE_HOST}"/>
-            <property name="port" value="${REDIS_SERVICE_PORT}"/>
-        </bean>
-
 
         <!-- Jedis ConnectionFactory -->
         <bean id="jedisConnFactory"
               class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-              p:host-name="server" p:port="6379" p:use-pool="true"
+              p:host-name="${REDIS_SERVICE_HOST}" p:port="${REDIS_SERVICE_PORT}" p:use-pool="true"
         />
 
         <!-- redis template definition -->
