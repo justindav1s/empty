@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Created by u760245 on 04/07/2014.
  */
 @Component("FlightDAO")
-public class FlightDAO {
+public class FlightDAO implements FlightService{
 
     private final Logger log = LoggerFactory.getLogger(FlightDAO.class);
 
