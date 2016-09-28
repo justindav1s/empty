@@ -103,19 +103,16 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.1.2</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.5</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
             <version>1.7.5</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>net.logstash.logback</groupId>
@@ -248,25 +245,25 @@
                                 <groupId>ch.qos.logback</groupId>
                                 <artifactId>logback-classic</artifactId>
                                 <type>jar</type>
-                                <classpath>shared</classpath>
+
                             </dependency>
                             <dependency>
                                 <groupId>ch.qos.logback</groupId>
                                 <artifactId>logback-core</artifactId>
                                 <type>jar</type>
-                                <classpath>shared</classpath>
+
                             </dependency>
                             <dependency>
                                 <groupId>org.slf4j</groupId>
                                 <artifactId>slf4j-api</artifactId>
                                 <type>jar</type>
-                                <classpath>shared</classpath>
+
                             </dependency>
                             <dependency>
                                 <groupId>org.slf4j</groupId>
                                 <artifactId>jcl-over-slf4j</artifactId>
                                 <type>jar</type>
-                                <classpath>shared</classpath>
+
                             </dependency>
                         </dependencies>
                         <type>installed</type>
