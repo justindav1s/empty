@@ -141,12 +141,12 @@ public class PersonResourceImpl implements PersonResource{
 
             log.debug("readPerson SESSION : "+ ((session != null) ? session.getId() : session));
 
-            p = (Person)session.getAttribute(PERSON_KEY);
+            //p = (Person)session.getAttribute(PERSON_KEY);
 
             if (p == null) {
                 log.debug("Retrieving Person from DB");
                 p = personService.readPerson(pid);
-                session.setAttribute(PERSON_KEY, p);
+                //session.setAttribute(PERSON_KEY, p);
             }
             else    {
                 log.debug("Retrieved Person from Session");
