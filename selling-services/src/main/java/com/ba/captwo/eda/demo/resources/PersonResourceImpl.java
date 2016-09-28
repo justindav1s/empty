@@ -15,6 +15,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by u760245 on 05/07/2014.
@@ -47,6 +48,15 @@ public class PersonResourceImpl implements PersonResource{
         log.debug("address : " + address);
         log.debug("city : " + city);
 
+        ResourceRquest resourceRquest = new ResourceRquest();
+        resourceRquest.putNVP("operation", "createPerson");
+        resourceRquest.putNVP("method", "POST");
+        resourceRquest.putNVP("fname", fname);
+        resourceRquest.putNVP("lname", lname);
+        resourceRquest.putNVP("address", address);
+        resourceRquest.putNVP("city", city);
+        log.debug(resourceRquest.toJson());
+
         Response response = null;
 
         if ((fname == null) || (lname == null) || (address == null))  {
@@ -70,6 +80,7 @@ public class PersonResourceImpl implements PersonResource{
             err.setMessage(e.getMessage());
             response = Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(err).build();
         }
+        log.debug(p.toJson());
 
         return response;
     }
@@ -79,6 +90,11 @@ public class PersonResourceImpl implements PersonResource{
 
         log.debug("createPerson POST Person Object");
         log.debug("person : " + p.toString());
+
+        ResourceRquest resourceRquest = new ResourceRquest();
+        resourceRquest.putNVP("operation", "createPerson");
+        resourceRquest.putNVP("person", p.toJson());
+        log.debug(resourceRquest.toJson());
 
         Response response = null;
 
@@ -98,6 +114,7 @@ public class PersonResourceImpl implements PersonResource{
             response = Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(err).build();
         }
 
+        log.debug(p.toJson());
         return response;
 
     }
@@ -111,6 +128,11 @@ public class PersonResourceImpl implements PersonResource{
         log.debug("readPerson");
         log.debug("readPerson REQUEST : "+request);
         log.debug("pid : " + pid);
+
+        ResourceRquest resourceRquest = new ResourceRquest();
+        resourceRquest.putNVP("operation", "readPerson");
+        resourceRquest.putNVP("pid", Integer.toString(pid));
+        log.debug(resourceRquest.toJson());
 
         Response response = null;
 
@@ -138,6 +160,8 @@ public class PersonResourceImpl implements PersonResource{
             err.setMessage(e.getMessage());
             response = Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(err).build();
         }
+
+        log.debug(p.toJson());
 
         return response;
     }
@@ -220,6 +244,8 @@ public class PersonResourceImpl implements PersonResource{
             err.setMessage(e.getMessage());
             response = Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(err).build();
         }
+
+        log.debug(persons.toString());
 
         log.debug("ListPersons END");
 

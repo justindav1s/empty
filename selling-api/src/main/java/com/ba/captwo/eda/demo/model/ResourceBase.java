@@ -1,5 +1,6 @@
 package com.ba.captwo.eda.demo.model;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,6 +16,18 @@ public abstract class ResourceBase implements Serializable {
     private final Logger log = LoggerFactory.getLogger(ResourceBase.class);
 
     static final long serialVersionUID = 1L;
+
+    private final ObjectMapper mapper = new ObjectMapper();
+
+    public String toJson()  {
+        String json = null;
+        try {
+            json =  mapper.writeValueAsString(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return json;
+    }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
