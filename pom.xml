@@ -12,7 +12,7 @@
     <distributionManagement>
         <repository>
             <id>nexus</id>
-            <url>http://nexus-ci.ba.datr.eu/content/repositories/snapshots</url>
+            <url>http://172.30.39.124:8081/content/repositories/snapshots</url>
             <layout>default</layout>
         </repository>
     </distributionManagement>
