@@ -19,7 +19,7 @@
 
         <bean id="sellingDatasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
             <property name="driverClassName" value="org.postgresql.Driver"/>
-            <property name="url" value="jdbc:postgresql://172.30.186.229:5432/ndc"/>
+            <property name="url" value="jdbc:postgresql://172.30.218.231:5432/ndc"/>
             <property name="username" value="ndc"/>
             <property name="password" value="ndc"/>
         </bean>
