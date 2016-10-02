@@ -19,9 +19,9 @@
 
         <bean id="sellingDatasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
             <property name="driverClassName" value="org.postgresql.Driver"/>
-            <property name="url" value="jdbc:postgresql://172.30.218.231:5432/ndc"/>
-            <property name="username" value="ndc"/>
-            <property name="password" value="ndc"/>
+            <property name="url" value="jdbc:postgresql://${POSTGRESQL_SERVICE_HOST}:${POSTGRESQL_SERVICE_PORT}/${POSTGRESQL_DATABASE}"/>
+            <property name="username" value="${POSTGRESQL_USER}"/>
+            <property name="password" value="${POSTGRESQL_PASSWORD}"/>
         </bean>
 
 

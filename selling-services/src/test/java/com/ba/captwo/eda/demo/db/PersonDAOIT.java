@@ -24,7 +24,7 @@ import java.util.ArrayList;
  * Created by u760245 on 04/07/2014.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"/test_beans.xml"})
+@ContextConfiguration(locations = {"classpath:test_beans.xml"})
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 public class PersonDAOIT {
 
