@@ -19,7 +19,7 @@
 
         <bean id="sellingDatasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
             <property name="driverClassName" value="org.postgresql.Driver"/>
-            <property name="url" value="jdbc:postgresql://${POSTGRESQL_SERVICE_HOST}:${POSTGRESQL_SERVICE_PORT}/${POSTGRESQL_DATABASE}"/>
+            <property name="url" value="jdbc:postgresql://${POSTGRESQL_SERVICE_ADDRESS}:${POSTGRESQL_SERVICE_PORT}/${POSTGRESQL_DATABASE}"/>
             <property name="username" value="${POSTGRESQL_USER}"/>
             <property name="password" value="${POSTGRESQL_PASSWORD}"/>
         </bean>
@@ -28,7 +28,7 @@
         <!-- Jedis ConnectionFactory -->
         <bean id="jedisConnFactory"
               class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-              p:host-name="${REDIS_SERVICE_HOST}" p:port="${REDIS_SERVICE_PORT}" p:use-pool="true"
+              p:host-name="${REDIS_SERVICE_ADDRESS}" p:port="${REDIS_SERVICE_PORT}" p:use-pool="true"
         />
 
         <!-- redis template definition -->
