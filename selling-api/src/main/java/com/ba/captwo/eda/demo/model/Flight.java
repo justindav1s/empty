@@ -7,6 +7,7 @@ import java.io.IOException;
  * Created by u760245 on 05/07/2014.
  */
 public class Flight extends ResourceBase{
+
     static final long serialVersionUID = 1L;
     private String flightnum = null;
     private String origin = null;

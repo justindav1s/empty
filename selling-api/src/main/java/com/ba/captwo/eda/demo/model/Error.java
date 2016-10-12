@@ -14,7 +14,8 @@ public class Error extends ResourceBase{
         return message;
     }
 
-    public void setMessage(String message) {
+    public Error setMessage(String message) {
         this.message = message;
+        return this;
     }
 }

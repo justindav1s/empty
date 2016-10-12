@@ -20,7 +20,7 @@
         <jackson.version>1.8.6</jackson.version>
         <cxf.version>2.7.11</cxf.version>
         <camel.version>2.13.1</camel.version>
-        <spring.version>3.2.8.RELEASE</spring.version>
+        <spring.version>4.3.3.RELEASE</spring.version>
     </properties>
 
     <dependencies>

@@ -3,6 +3,7 @@ package com.ba.captwo.eda.demo.model;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by u760245 on 06/07/2014.
@@ -12,27 +13,28 @@ public class Reservation extends ResourceBase{
 
     static final long serialVersionUID = 1L;
 
-    private Person person;
+    private ArrayList<Person> persons = new ArrayList<Person>();
 
-    private Booking booking;
+    private ArrayList<Flight> itinerary = new ArrayList<Flight>();
+
+    private String bookingId;
 
     private Error error;
 
-
-    public Person getPerson() {
-        return person;
+    public ArrayList<Person> getPersons() {
+        return persons;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setPersons(ArrayList<Person> persons) {
+        this.persons = persons;
     }
 
-    public Booking getBooking() {
-        return booking;
+    public ArrayList<Flight> getItinerary() {
+        return itinerary;
     }
 
-    public void setBooking(Booking booking) {
-        this.booking = booking;
+    public void setItinerary(ArrayList<Flight> itinerary) {
+        this.itinerary = itinerary;
     }
 
     public Error getError() {
@@ -41,5 +43,13 @@ public class Reservation extends ResourceBase{
 
     public void setError(Error error) {
         this.error = error;
+    }
+
+    public String getBookingId() {
+        return bookingId;
+    }
+
+    public void setBookingId(String bookingId) {
+        this.bookingId = bookingId;
     }
 }
