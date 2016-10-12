@@ -104,6 +104,18 @@ public class PersonResourceImpl implements PersonResource{
             return Response.status(Response.Status.BAD_REQUEST).entity(err).build();
         }
 
+        if ((p.getFirstName() == null))  {
+            Error err = new Error();
+            err.setMessage("invalid person message - no first name");
+            return Response.status(Response.Status.BAD_REQUEST).entity(err).build();
+        }
+
+        if ((p.getLastName() == null))  {
+            Error err = new Error();
+            err.setMessage("invalid person message - no last name");
+            return Response.status(Response.Status.BAD_REQUEST).entity(err).build();
+        }
+
         try {
             p = personService.createPerson(p);
             response = Response.status(Response.Status.OK).entity(p).build();

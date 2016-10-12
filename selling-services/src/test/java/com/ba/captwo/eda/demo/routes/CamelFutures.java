@@ -6,7 +6,6 @@ import com.ba.captwo.eda.demo.model.Flight;
 import com.ba.captwo.eda.demo.model.Person;
 import com.google.common.collect.ImmutableMap;
 import org.apache.camel.*;
-import org.apache.camel.impl.DefaultExchange;
 import org.apache.camel.test.spring.CamelSpringJUnit4ClassRunner;
 import org.apache.camel.test.spring.DisableJmx;
 import org.apache.camel.test.spring.MockEndpoints;
@@ -34,9 +33,9 @@ import static org.junit.Assert.assertTrue;
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @MockEndpoints("log:*")
 @DisableJmx(false)
-public class CamelFuturesTest {
+public class CamelFutures {
 
-    private final static Logger log = LoggerFactory.getLogger(CamelFuturesTest.class);
+    private final static Logger log = LoggerFactory.getLogger(CamelFutures.class);
 
     @Autowired
     private FlightDAO flightDAO;

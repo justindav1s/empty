@@ -19,7 +19,7 @@
     <logger name="org.apache.camel" level="INFO"/>
     <logger name="com.ba" level="DEBUG"/>
 
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
 </configuration>

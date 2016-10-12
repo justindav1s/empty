@@ -6,16 +6,9 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.component.mock.MockEndpoint;
-import org.apache.camel.test.spring.CamelSpringJUnit4ClassRunner;
-import org.apache.camel.test.spring.DisableJmx;
-import org.apache.camel.test.spring.MockEndpoints;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ContextConfiguration;
 
 import java.util.ArrayList;
 
@@ -29,9 +22,9 @@ import static org.junit.Assert.*;
 //@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 //@MockEndpoints("log:*")
 //@DisableJmx(false)
-public class PersonCoreserviceRouteTest {
+public class PersonCoreserviceRoute {
 
-    private final static Logger log = LoggerFactory.getLogger(PersonCoreserviceRouteTest.class);
+    private final static Logger log = LoggerFactory.getLogger(PersonCoreserviceRoute.class);
 
     @Autowired
     private PersonDAO personDAO;
