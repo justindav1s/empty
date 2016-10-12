@@ -56,7 +56,7 @@ public class PersonCreateNoFirstNameConsumerPactTest {
 
 
     @Rule
-    public PactProviderRule provider = new PactProviderRule("person_provider", "localhost", 8080, this);
+    public PactProviderRule provider = new PactProviderRule("person_provider", "localhost", 8081, this);
 
     @Pact(provider="person_provider", consumer="person_consumer")
     public PactFragment createFragment(PactDslWithProvider builder) {
@@ -84,7 +84,7 @@ public class PersonCreateNoFirstNameConsumerPactTest {
         BasicHeader header = new BasicHeader("client_name", "uber_app");
 
         //Bad Person 1
-        assertEquals(new ConsumerClient("http://localhost:8080").postForStatusCode("/person/create", buildBadPersonNoFirstName().toJson(), header, ContentType.APPLICATION_JSON), 400);
+        assertEquals(new ConsumerClient("http://localhost:8081").postForStatusCode("/person/create", buildBadPersonNoFirstName().toJson(), header, ContentType.APPLICATION_JSON), 400);
 
     }
 }

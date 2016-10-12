@@ -81,7 +81,7 @@ public class ReservationCreateInvalidPaxListConsumerPactTest {
     }
 
     @Rule
-    public PactProviderRule provider = new PactProviderRule("reservation_provider", "localhost", 8080, this);
+    public PactProviderRule provider = new PactProviderRule("reservation_provider", "localhost", 8092, this);
 
     @Pact(provider="reservation_provider", consumer="reservation_consumer")
     public PactFragment createFragment(PactDslWithProvider builder) {
@@ -108,7 +108,7 @@ public class ReservationCreateInvalidPaxListConsumerPactTest {
         BasicHeader header = new BasicHeader("client_name", "uber_app");
 
         //Bad Pax list
-        assertEquals(new ConsumerClient("http://localhost:8080").postForStatusCode("/makereservation", buildReservationNoPassengers().toJson(), header, ContentType.APPLICATION_JSON), 400);
+        assertEquals(new ConsumerClient("http://localhost:8092").postForStatusCode("/makereservation", buildReservationNoPassengers().toJson(), header, ContentType.APPLICATION_JSON), 400);
 
     }
 }

@@ -56,7 +56,7 @@ public class PersonCreateNoLastNameConsumerPactTest {
 
 
     @Rule
-    public PactProviderRule provider = new PactProviderRule("person_provider", "localhost", 8080, this);
+    public PactProviderRule provider = new PactProviderRule("person_provider", "localhost", 8082, this);
 
     @Pact(provider="person_provider", consumer="person_consumer")
     public PactFragment createFragment(PactDslWithProvider builder) {
@@ -83,7 +83,7 @@ public class PersonCreateNoLastNameConsumerPactTest {
         BasicHeader header = new BasicHeader("client_name", "uber_app");
 
         //Bad Person 2
-        assertEquals(new ConsumerClient("http://localhost:8080").postForStatusCode("/person/create", buildBadPersonNoLastName().toJson(), header, ContentType.APPLICATION_JSON), 400);
+        assertEquals(new ConsumerClient("http://localhost:8082").postForStatusCode("/person/create", buildBadPersonNoLastName().toJson(), header, ContentType.APPLICATION_JSON), 400);
 
     }
 }

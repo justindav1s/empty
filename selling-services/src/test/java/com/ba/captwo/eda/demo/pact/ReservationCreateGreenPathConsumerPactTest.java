@@ -85,7 +85,7 @@ public class ReservationCreateGreenPathConsumerPactTest {
     }
 
     @Rule
-    public PactProviderRule provider = new PactProviderRule("reservation_provider", "localhost", 8080, this);
+    public PactProviderRule provider = new PactProviderRule("reservation_provider", "localhost", 8090, this);
 
     @Pact(provider="reservation_provider", consumer="reservation_consumer")
     public PactFragment createFragment(PactDslWithProvider builder) {
@@ -112,7 +112,7 @@ public class ReservationCreateGreenPathConsumerPactTest {
         BasicHeader header = new BasicHeader("client_name", "uber_app");
 
         //Green Path
-        assertEquals(new ConsumerClient("http://localhost:8080").postForStatusCode("/makereservation", buildReservationRequest().toJson(), header, ContentType.APPLICATION_JSON), 200);
+        assertEquals(new ConsumerClient("http://localhost:8090").postForStatusCode("/makereservation", buildReservationRequest().toJson(), header, ContentType.APPLICATION_JSON), 200);
 
     }
 }
