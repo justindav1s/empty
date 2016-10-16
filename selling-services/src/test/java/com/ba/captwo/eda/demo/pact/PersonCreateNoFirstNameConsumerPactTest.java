@@ -63,8 +63,8 @@ public class PersonCreateNoFirstNameConsumerPactTest {
         inputheaders.put("Connection", "keep-alive");
         //inputheaders.put("Content-Length", String.valueOf(contentLength));
         inputheaders.put("Content-Type", "application/json; charset=UTF-8");
-        inputheaders.put("User-Agent", "Java/1.8.0_60");
-        inputheaders.put("Host", mockserverHost+":"+mockserverPort);
+        //inputheaders.put("User-Agent", "Java/1.8.0_60");
+        //inputheaders.put("Host", mockserverHost+":"+mockserverPort);
         inputheaders.put("client_name", "uber_app");
         return inputheaders;
     }
