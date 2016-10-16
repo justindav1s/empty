@@ -1,0 +1,199 @@
+{
+    "provider": {
+        "name": "reservation_provider"
+    },
+    "consumer": {
+        "name": "reservation_consumer"
+    },
+    "interactions": [
+        {
+            "description": "a reservation request with no itinerary",
+            "request": {
+                "method": "POST",
+                "path": "/makereservation",
+                "headers": {
+                    "client_name": "uber_app"
+                },
+                "body": {
+                    "bookingId": null,
+                    "error": null,
+                    "itinerary": [
+                        
+                    ],
+                    "persons": [
+                        {
+                            "address": "Kensington Palace",
+                            "city": "London",
+                            "firstName": "William",
+                            "lastName": "Windsor",
+                            "personID": 0
+                        },
+                        {
+                            "address": "Kensington Palace",
+                            "city": "London",
+                            "firstName": "William",
+                            "lastName": "Windsor",
+                            "personID": 0
+                        }
+                    ]
+                }
+            },
+            "response": {
+                "status": 400,
+                "headers": {
+                    "client_name": "uber_app"
+                },
+                "body": {
+                    "bookingId": null,
+                    "error": {
+                        "message": "invalid itinerary"
+                    },
+                    "itinerary": [
+                        
+                    ],
+                    "persons": [
+                        
+                    ]
+                }
+            },
+            "providerState": "new reservation is being requested"
+        },
+        {
+            "description": "a reservation request with no passengers",
+            "request": {
+                "method": "POST",
+                "path": "/makereservation",
+                "headers": {
+                    "client_name": "uber_app"
+                },
+                "body": {
+                    "bookingId": null,
+                    "error": null,
+                    "itinerary": [
+                        {
+                            "destination": "JFK",
+                            "flightnum": "BA177",
+                            "origin": "LHR"
+                        },
+                        {
+                            "destination": "LHR",
+                            "flightnum": "BA178",
+                            "origin": "JFK"
+                        }
+                    ],
+                    "persons": [
+                        
+                    ]
+                }
+            },
+            "response": {
+                "status": 400,
+                "headers": {
+                    "client_name": "uber_app"
+                },
+                "body": {
+                    "bookingId": null,
+                    "error": {
+                        "message": "invalid pax list"
+                    },
+                    "itinerary": [
+                        
+                    ],
+                    "persons": [
+                        
+                    ]
+                }
+            },
+            "providerState": "new reservation is being requested"
+        },
+        {
+            "description": "a valid make reservation request",
+            "request": {
+                "method": "POST",
+                "path": "/makereservation",
+                "headers": {
+                    "client_name": "uber_app"
+                },
+                "body": {
+                    "bookingId": null,
+                    "error": null,
+                    "itinerary": [
+                        {
+                            "destination": "JFK",
+                            "flightnum": "BA177",
+                            "origin": "LHR"
+                        },
+                        {
+                            "destination": "LHR",
+                            "flightnum": "BA178",
+                            "origin": "JFK"
+                        }
+                    ],
+                    "persons": [
+                        {
+                            "address": "Kensington Palace",
+                            "city": "London",
+                            "firstName": "William",
+                            "lastName": "Windsor",
+                            "personID": 0
+                        },
+                        {
+                            "address": "Kensington Palace",
+                            "city": "London",
+                            "firstName": "William",
+                            "lastName": "Windsor",
+                            "personID": 0
+                        }
+                    ]
+                }
+            },
+            "response": {
+                "status": 200,
+                "headers": {
+                    "client_name": "uber_app"
+                },
+                "body": {
+                    "bookingId": "ABCDEF",
+                    "error": null,
+                    "itinerary": [
+                        {
+                            "destination": "JFK",
+                            "flightnum": "BA177",
+                            "origin": "LHR"
+                        },
+                        {
+                            "destination": "LHR",
+                            "flightnum": "BA178",
+                            "origin": "JFK"
+                        }
+                    ],
+                    "persons": [
+                        {
+                            "address": "Kensington Palace",
+                            "city": "London",
+                            "firstName": "William",
+                            "lastName": "Windsor",
+                            "personID": 0
+                        },
+                        {
+                            "address": "Kensington Palace",
+                            "city": "London",
+                            "firstName": "William",
+                            "lastName": "Windsor",
+                            "personID": 0
+                        }
+                    ]
+                }
+            },
+            "providerState": "new reservation is being requested"
+        }
+    ],
+    "metadata": {
+        "pact-specification": {
+            "version": "2.0.0"
+        },
+        "pact-jvm": {
+            "version": "3.3.1"
+        }
+    }
+}

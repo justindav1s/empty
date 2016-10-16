@@ -1,0 +1,109 @@
+{
+    "provider": {
+        "name": "person_provider"
+    },
+    "consumer": {
+        "name": "person_consumer"
+    },
+    "interactions": [
+        {
+            "description": "\nA save person request with no first name",
+            "request": {
+                "method": "POST",
+                "path": "/person/create",
+                "headers": {
+                    "client_name": "uber_app"
+                },
+                "body": {
+                    "address": "The White House",
+                    "city": "Washington",
+                    "firstName": null,
+                    "lastName": "Obama",
+                    "personID": 0
+                }
+            },
+            "response": {
+                "status": 400,
+                "headers": {
+                    "client_name": "uber_app"
+                },
+                "body": {
+                    "message": "invalid person message - no first name"
+                }
+            },
+            "providerState": "person details added to repository"
+        },
+        {
+            "description": "\nA save person request with no last name",
+            "request": {
+                "method": "POST",
+                "path": "/person/create",
+                "headers": {
+                    "client_name": "uber_app"
+                },
+                "body": {
+                    "address": "The White House",
+                    "city": "Washington",
+                    "firstName": "Barack",
+                    "lastName": null,
+                    "personID": 0
+                }
+            },
+            "response": {
+                "status": 400,
+                "headers": {
+                    "client_name": "uber_app"
+                },
+                "body": {
+                    "message": "invalid person message - no last name"
+                }
+            },
+            "providerState": "person details added to repository"
+        },
+        {
+            "description": "\nA valid save person request",
+            "request": {
+                "method": "POST",
+                "path": "/person/create",
+                "headers": {
+                    "client_name": "uber_app"
+                },
+                "body": {
+                    "address": "The White House",
+                    "city": "Washington",
+                    "firstName": "Barack",
+                    "lastName": "Obama",
+                    "personID": 0
+                }
+            },
+            "response": {
+                "status": 200,
+                "headers": {
+                    "client_name": "uber_app",
+                    "Content-Type": "application/json"
+                },
+                "body": {
+                    "address": "The White House",
+                    "city": "Washington",
+                    "firstName": "Barack",
+                    "lastName": "Obama",
+                    "personID": 961121542
+                },
+                "matchingRules": {
+                    "$.body.personID": {
+                        "match": "type"
+                    }
+                }
+            },
+            "providerState": "person details added to repository"
+        }
+    ],
+    "metadata": {
+        "pact-specification": {
+            "version": "2.0.0"
+        },
+        "pact-jvm": {
+            "version": "3.3.1"
+        }
+    }
+}

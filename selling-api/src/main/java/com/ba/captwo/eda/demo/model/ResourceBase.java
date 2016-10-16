@@ -17,7 +17,7 @@ public abstract class ResourceBase implements Serializable {
 
     static final long serialVersionUID = 1L;
 
-    private final ObjectMapper mapper = new ObjectMapper();
+    public static final ObjectMapper mapper = new ObjectMapper();
 
     public String toJson()  {
         String json = null;
@@ -27,6 +27,16 @@ public abstract class ResourceBase implements Serializable {
             e.printStackTrace();
         }
         return json;
+    }
+
+    public static Object toObject(String json) {
+        Object p = null;
+        try {
+            p = mapper.readValue(json.getBytes(), Object.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return p;
     }
 
     public String toString() {

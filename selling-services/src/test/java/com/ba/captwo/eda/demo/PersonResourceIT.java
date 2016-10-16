@@ -1,5 +1,6 @@
 package com.ba.captwo.eda.demo;
 
+import com.ba.captwo.eda.demo.clients.PersonClient;
 import com.ba.captwo.eda.demo.db.PersonDAO;
 import com.ba.captwo.eda.demo.model.Person;
 import org.apache.cxf.helpers.IOUtils;
@@ -14,6 +15,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -21,7 +23,9 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -99,6 +103,34 @@ public class PersonResourceIT {
         personDAO.deletePerson(p.getPersonID());
     }
 
+    @Test
+    public void testCreateRestTemplate() throws Exception {
+        log.info("Test RestTemplate CREATE POST");
+
+        List<Object> providers = new ArrayList<Object>();
+        providers.add( new JacksonJsonProvider());
+
+        Person testPerson = new Person();
+        testPerson.setLastName("Windsor");
+        testPerson.setFirstName("Kate");
+        testPerson.setAddress("Kensington Palace");
+        testPerson.setCity("London");
+
+        Map<String, String> headers = new HashMap<String, String>();
+        headers.put("client_name", "uber_app");
+
+        String uri = endpointUrl+"/person/create";
+
+        PersonClient client = new PersonClient();
+        ResponseEntity<String> responseEntity = client.createPerson(testPerson, uri, headers);
+        assertEquals(Response.Status.OK.getStatusCode(), responseEntity.getStatusCode().value());
+        String str = responseEntity.getBody();
+        log.info("Create response : "+str);
+        Person p = Person.toPerson(str);
+        log.info("Create pd : "+p.getPersonID());
+
+        personDAO.deletePerson(p.getPersonID());
+    }
 
     @Test
     public void testRead() throws Exception {

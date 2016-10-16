@@ -1,6 +1,8 @@
 package com.ba.captwo.eda.demo.model;
 
 
+import java.io.IOException;
+
 /**
  * Created by u760245 on 04/07/2014.
  */
@@ -60,4 +62,13 @@ public class Person extends ResourceBase {
     }
 
 
+    public static Person toPerson(String json) {
+        Person p = null;
+        try {
+            p = mapper.readValue(json.getBytes(), Person.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return p;
+    }
 }

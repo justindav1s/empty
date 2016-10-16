@@ -96,34 +96,36 @@ public class PersonResourceImpl implements PersonResource{
         resourceRquest.putNVP("person", p.toJson());
         log.debug(resourceRquest.toJson());
 
+        String client_name = request.getHeader("client_name");
+
         Response response = null;
 
         if ((p == null))  {
             Error err = new Error();
             err.setMessage("Incomplate Request");
-            return Response.status(Response.Status.BAD_REQUEST).entity(err).build();
+            return Response.status(Response.Status.BAD_REQUEST).entity(err).header("client_name", client_name).build();
         }
 
         if ((p.getFirstName() == null))  {
             Error err = new Error();
             err.setMessage("invalid person message - no first name");
-            return Response.status(Response.Status.BAD_REQUEST).entity(err).build();
+            return Response.status(Response.Status.BAD_REQUEST).entity(err).header("client_name", client_name).build();
         }
 
         if ((p.getLastName() == null))  {
             Error err = new Error();
             err.setMessage("invalid person message - no last name");
-            return Response.status(Response.Status.BAD_REQUEST).entity(err).build();
+            return Response.status(Response.Status.BAD_REQUEST).entity(err).header("client_name", client_name).build();
         }
 
         try {
             p = personService.createPerson(p);
-            response = Response.status(Response.Status.OK).entity(p).build();
+            response = Response.status(Response.Status.OK).entity(p).header("client_name", client_name).build();
         }
         catch (Exception e) {
             com.ba.captwo.eda.demo.model.Error err = new Error();
             err.setMessage(e.getMessage());
-            response = Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(err).build();
+            response = Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(err).header("client_name", client_name).build();
         }
 
         log.debug(p.toJson());

@@ -324,7 +324,7 @@
                 </executions>
             </plugin>
 
-            <plugin>
+            <!--plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>2.8.1</version>
@@ -348,6 +348,39 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin-->
+
+            <plugin>
+                <groupId>au.com.dius</groupId>
+                <artifactId>pact-jvm-provider-maven_2.11</artifactId>
+                <version>3.2.10</version>
+
+                        <configuration>
+                            <serviceProviders>
+                                <serviceProvider>
+                                    <name>person_provider</name>
+                                    <protocol>http</protocol>
+                                    <host>localhost</host>
+                                    <port>${tomcat.listen.port}</port>
+                                    <path>/${project.build.finalName}/s</path>
+                                    <pactFileDirectory>target/pacts</pactFileDirectory>
+                                </serviceProvider>
+                            </serviceProviders>
+                            <pactBrokerUrl/>
+                            <configuration>
+                                <pact.showStacktrace>true</pact.showStacktrace>
+                            </configuration>
+                        </configuration>
+
+                <executions>
+                <execution>
+                    <id>pact-test</id>
+                    <phase>integration-test</phase>
+                    <goals>
+                        <goal>verify</goal>
+                    </goals>
+                </execution>
+            </executions>
             </plugin>
 
         </plugins>
