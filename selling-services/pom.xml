@@ -351,6 +351,36 @@
             </plugin-->
 
             <plugin>
+                <groupId>com.github.warmuuh</groupId>
+                <artifactId>pactbroker-maven-plugin</artifactId>
+                <version>0.0.9</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>upload-pacts</goal>
+                        </goals>
+                        <phase>verify</phase>
+                        <configuration>
+                            <brokerUrl>http://127.0.0.1</brokerUrl>
+                            <pacts>${project.build.directory}/pacts</pacts>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>download-pacts</id>
+                        <phase>generate-test-resources</phase>
+                        <goals>
+                            <goal>download-pacts</goal>
+                        </goals>
+                        <configuration>
+                            <brokerUrl>http://127.0.0.1</brokerUrl>
+                            <pacts>${project.build.testOutputDirectory}/pacts-dependents</pacts>
+                            <provider>person_provider</provider>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
                 <groupId>au.com.dius</groupId>
                 <artifactId>pact-jvm-provider-maven_2.11</artifactId>
                 <version>3.2.10</version>
@@ -363,7 +393,8 @@
                                     <host>localhost</host>
                                     <port>${tomcat.listen.port}</port>
                                     <path>/${project.build.finalName}/s</path>
-                                    <pactFileDirectory>target/pacts</pactFileDirectory>
+                                    <!--pactFileDirectory>target/pacts</pactFileDirectory-->
+                                    <pactBrokerUrl>http://127.0.0.1/</pactBrokerUrl>
                                 </serviceProvider>
                             </serviceProviders>
                             <pactBrokerUrl/>
